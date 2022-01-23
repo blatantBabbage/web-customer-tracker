@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- Step 1: Add support for component scanning -->
-    <context:component-scan base-package="com.nitesh" />
+    <context:component-scan base-package="com.nitesh.springdemo" />
 
     <!-- Step 2: Add support for conversion, formatting and validation support -->
     <mvc:annotation-driven/>
@@ -61,5 +61,8 @@
 
     <!-- Step 7: Enable configuration of transactional behavior based on annotations -->
     <tx:annotation-driven transaction-manager="myTransactionManager" />
+
+    <!-- add support for reading web resources: css, js, images, pdf etc...  -->
+    <mvc:resources location="/resources/" mapping="/resources/**"/>
 
 </beans>
