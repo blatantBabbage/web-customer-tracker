@@ -52,7 +52,8 @@
                         <!-- display the update link -->
                         <a href="${updateLink}">Update</a>
                         |
-                        <a href="${deleteLink}">Delete</a>
+                        <a href="${deleteLink}"
+                        onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
                     </td>
                 </tr>
             </c:forEach>
