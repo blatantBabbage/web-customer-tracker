@@ -1,6 +1,5 @@
 package com.nitesh.springdemo.controller;
 
-import com.nitesh.springdemo.dao.CustomerDAO;
 import com.nitesh.springdemo.entity.Customer;
 import com.nitesh.springdemo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +64,16 @@ public class CustomerController {
         customerService.deleteCustomer(theId);
 
         return "redirect:/customer/list";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("theSearchName") String theSearchName, Model theModel) {
+
+        // search customers from the service
+        List<Customer> theCustomer = customerService.searchCustomer(theSearchName);
+
+        // add the customers to the model
+        theModel.addAttribute("customers", theCustomer);
+        return "list-customers";
     }
 }
